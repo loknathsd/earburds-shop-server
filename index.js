@@ -1,9 +1,19 @@
 const express = require("express");
+const cors = require("cors")
 const productRouter = require("./src/routers/productRouter");
 const { connection } = require("./src/utils/connect");
 require('dotenv').config()
+
 const app = express();
  
+app.use(cors());
+// const corsOptions ={
+//     origin:'*', 
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200,
+//  }
+ 
+//  app.use(cors(corsOptions))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

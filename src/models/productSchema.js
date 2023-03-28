@@ -1,7 +1,7 @@
 const { Schema, default: mongoose } = require("mongoose");
 
 const productSchema = new Schema({
-    image:String,
+    imgUrl:String,
     name:{
         type:String,
        required:true
@@ -10,8 +10,8 @@ const productSchema = new Schema({
         type:Number,
         required:true
     },
-    date: { type: Date, default: Date.now },
+    // date: { type: Date, default: Date.now },
 })
 
 const Product = mongoose.model("Product",productSchema);
-module.exports={Product}
+module.exports=Product;
