@@ -4,7 +4,6 @@ const Product = require('../../models/productSchema');
 
 //add product
 const addProduct = async (req, res) => {
-    console.log(req.body)
     try {
         const product = new Product(req.body);
         await product.save();
@@ -16,12 +15,9 @@ const addProduct = async (req, res) => {
 }
 //get all products
 const getAll = async (req, res) => {
-    console.log('get all data');
     try {
-        await Product.find({}).exec((data) => {
-            res.status(200).json({ result: data })
-        })
-
+        const data = await Product.find();
+        res.status(200).json(data);
     } catch (e) {
         console.log(e);
         res.status(500).json({ message: "Server Failed" })
