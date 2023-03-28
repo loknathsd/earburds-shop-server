@@ -35,7 +35,6 @@ const getOne = async (req, res) => {
         throw new Error("Something went wrong")
     }
 }
-
 const update = async (req, res) => {
     try {
 
