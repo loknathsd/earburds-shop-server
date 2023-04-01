@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors")
 const productRouter = require("./src/routers/productRouter");
 const { connection } = require("./src/utils/connect");
+const orderRouter = require("./src/routers/orderRouter");
 require('dotenv').config()
 
 const app = express();
@@ -28,7 +29,8 @@ function main(){
 
 app.get("/",(req,res)=>res.send('hello world'))
 
-app.use("/product",productRouter)
+app.use("/product",productRouter);
+app.use("/order",orderRouter);
 
 
 
