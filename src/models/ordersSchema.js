@@ -21,6 +21,7 @@ const ordersSchema = new Schema({
         type:String,
         required:true
     },
+    totalprice:{type:Number},
     products:[]
 })
 
