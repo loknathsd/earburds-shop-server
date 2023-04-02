@@ -18,8 +18,8 @@ const userSchema = mongoose.Schema(
         type: String,
         required: true,
       },
-      confirmPassword: {
-        type: String,
+      phone: {
+        type: Number,
         required: true,
       },
       role: {
