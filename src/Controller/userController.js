@@ -1,10 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userSchema");
-
-
-const secret = 'test';
-
+const secret = process.env.JWT_SECRET || 'test '
 
 const getUsers=async(req,res)=>{
     try {
@@ -14,7 +11,6 @@ const getUsers=async(req,res)=>{
         res.status(500).json("Something went wrong")
     }
 }
-
 const signup = async(req,res)=>{
     const {name, email, password, phone} = req.body;
   try {
@@ -42,7 +38,6 @@ const signin = async (req, res) => {
       res.status(500).json({ message: "Something went wrong" });
     }
 }
-
 // user delete
 const deleteUser = async (req, res) => {
   try {
@@ -53,8 +48,4 @@ const deleteUser = async (req, res) => {
       res.status(500).json({ message: "User is not deleted . failed !" })
   }
 }
-
-
-
-
 module.exports={getUsers,signup,signin,deleteUser}

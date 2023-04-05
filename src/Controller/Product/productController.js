@@ -1,5 +1,3 @@
-
-
 const Product = require('../../models/productSchema');
 
 //add product
@@ -23,9 +21,7 @@ const getAll = async (req, res) => {
         res.status(500).json({ message: "Server Failed" })
     }
 }
-
 //get single product
-
 const getOne = async (req, res) => {
     try {
         const data = await Product.find({ _id: req.params.id });
@@ -46,7 +42,6 @@ const updateProduct = async (req,res) => {
       res.status(500).json({ message: 'Failed to update product' });
     }
   };
-
 //delete product
 const deleteProduct = async (req, res) => {
     try {
@@ -57,6 +52,4 @@ const deleteProduct = async (req, res) => {
         res.status(500).json({ message: "Product is not deleted . failed !" })
     }
 }
-
-
 module.exports = { addProduct, getAll, getOne, updateProduct, deleteProduct }
